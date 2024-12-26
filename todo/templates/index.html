@@ -9,8 +9,9 @@
       {% for todo in todos %}
       <li>
         {{ todo.title }} - {{ todo.description }}
-        <button>delete</button>
-        <button>edit</button>
+        <a href="{% url 'del_todo' todo.id %}">Delete</a>
+        <a href="{% url 'edit_todo' todo.id %}">edit</a>
+
       </li>
       {% endfor %}
     </ul>
