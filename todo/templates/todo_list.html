@@ -1,0 +1,19 @@
+{% extends "root.html" %}
+{% block title %}Home | Todolist{% endblock title %}
+{% block container %}
+<h1>To-Do List</h1>
+<ul class="row d-flex p-1  m-auto gap-3 ">
+  {% for todo in todos %}
+  <li class="row bg-light gap-3 p-3 m-auto">
+    <h3>{{ todo.title }}</h3>
+    <p>{{ todo.description }}</p>
+    <div >
+      <a  class=" btn  btn-danger w-25" href={% url "del_todo" todo.id %}>Delete</a>
+
+      <button  class=" btn btn-secondary w-25">Edit</button>
+</div>
+  </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'add_todo' %}" class=" btn btn-primary w-25 m-auto">Add New Task</a>
+{% endblock container %}

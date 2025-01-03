@@ -5,7 +5,7 @@ from .models import Todo  # Import the Todo model
 # Function to display all tasks
 def index(request):
     todos = Todo.objects.all()  # Fetch all tasks from the database
-    return render(request, 'index.html', {'todos': todos})
+    return render(request, 'todo_list.html', {'todos': todos})
 
 # Function to add a new task
 def add_todo(request):

@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Task</title>
-</head>
-<body>
-    <h1>Add Task</h1>
-    <form method="post">
+{% extends "root.html" %}
+{% block title %}Add |Todo {% endblock title %}
+{% block container %}
+<h1 class="m-auto w-25 ">Add Task</h1>
+    <form method="post" class="gap-3 row m-auto ">
         {% csrf_token %}
-        <input type="text" name="title" placeholder="Title" required><br>
-        <textarea name="description" placeholder="Description"></textarea><br>
-        <button type="submit">Add Task</button>
+        <input type="text" name="title" placeholder="Title" required class="form-control"><br>
+        <textarea name="description" placeholder="Description"  col={10} class=" form-control"></textarea><br>
+ <div class="d-flex m-auto w-50   gap-2 ">
+        <button type="submit" class=" btn btn-primary">Add Task</button>
+        <a  class=" btn   btn-outline-primary " href={% url "index" %}>go to home</a>
+ </div>
     </form>
-</body>
-</html>
+    {% endblock container %}
