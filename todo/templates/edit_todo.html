@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Task</title>
-</head>
-<body>
-    <h1>Edit Task</h1>
-    <form method="POST">
+
+{% extends "root.html" %}
+{% block title %}Add |Todo {% endblock title %}
+{% block container %}
+<h1 class="m-auto  ">Edit a Todo {{todo.id}} </h1>
+    <form method="post" class="gap-3 row m-auto ">
         {% csrf_token %}
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" value="{{ todo.title }}" required><br><br>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="{{ todo.title }}" required class="form-control">
 
-        <label for="description">Description:</label><br>
-        <textarea id="description" name="description">{{ todo.description }}</textarea><br><br>
-
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"  col={10} class=" form-control" >{{ todo.description }}</textarea>
+<div>
         <label for="is_completed">Completed:</label>
-        <input type="checkbox" id="is_completed" name="is_completed" {% if todo.is_completed %}checked{% endif %}><br><br>
-
-        <button type="submit">Save Changes</button>
+        <input type="checkbox" id="is_completed" name="is_completed" {% if todo.is_completed %}checked{% endif %}  >
+</div>
+ <div class="d-flex m-auto w-50   gap-2 ">
+        <button type="submit" class=" btn btn-primary">Save Changes</button>
+        <a  class=" btn   btn-outline-primary " href={% url "index" %}>go to home</a>
+ </div>
     </form>
-    <a href="{% url 'index' %}">Back to Home</a>
-</body>
-</html>
+    {% endblock container %}

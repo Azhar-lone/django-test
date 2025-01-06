@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">  
 </head>
   <body>
+   {% include "components/nav.html" %}
+
         <div class=" d-flex border w-75  my-5 m-auto  gap-3 justify-items-center  row p-3 m-auto ">            
  {% block container %}{% endblock container %}
 </div>
 
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script
+{% include "components/footer.html" %}
+  
+
   </body>
 </html>
 

@@ -1,0 +1,21 @@
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+        <span class="fs-4">TodoList App</span>
+      </a>
+      <ul class="nav nav-pills">
+
+      {% comment %} {% for link in ("Home","AddTodo","Pricing","FAQs","About") %} {% endcomment %}
+      {% comment %} <li class="nav-item {%if request.path==page%} {% endif %}"><a href="#" class="nav-link active"  aria-current="page">{{link}}</a></li> {% endcomment %}
+
+{% comment %} {% endfor %} {% endcomment %}
+<li class="nav-item"><a href={% url "add_todo" %} class="nav-link active">Home</a></li>
+        
+<li class="nav-item"><a href={% url "add_todo" %} class="nav-link">AddTodo</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+      </ul>
+    </header>
+  </div>

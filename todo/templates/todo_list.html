@@ -5,12 +5,12 @@
 <ul class="row d-flex p-1  m-auto gap-3 ">
   {% for todo in todos %}
   <li class="row bg-light gap-3 p-3 m-auto">
-    <h3>{{ todo.title }}</h3>
-    <p>{{ todo.description }}</p>
+    <h3  {% if todo.is_completed %} class="bg-danger" {% endif %}>{{ todo.title }}</h3>
+    <p {% if todo.is_completed %} class="" {% endif %}>{{ todo.description }}</p>
     <div >
       <a  class=" btn  btn-danger w-25" href={% url "del_todo" todo.id %}>Delete</a>
 
-      <button  class=" btn btn-secondary w-25">Edit</button>
+      <a  class=" btn btn-info w-25"  href={% url "edit_todo" todo.id %}>Edit</a>
 </div>
   </li>
   {% endfor %}

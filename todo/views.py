@@ -32,10 +32,3 @@ def edit_todo(request, todo_id):
         todo.save()  # Save the changes
         return redirect('index')  # Redirect to the homepage
     return render(request, 'edit_todo.html', {'todo': todo})
-    todo = get_object_or_404(Todo, id=todo_id)  # Get the specific task
-    if request.method == 'POST':
-        todo.title = request.POST.get('title')  # Update the title
-        todo.description = request.POST.get('description')  # Update the description
-        todo.is_completed = 'is_completed' in request.POST  # Update completion status
-        todo.save()  # Save the changes
-        return redirect('index')  # Redirect to the homepage
