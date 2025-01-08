@@ -1,3 +1,13 @@
-<h1>
-    This is test
-</h1>
+{% extends "root.html" %}
+
+{% block container %}
+<form method="post" class="gap-3 row m-auto ">
+    {% csrf_token %}
+    <h1>Are you sure you want to delete task {{todo_pk}}</h1>
+    <div >
+        <button  class=" btn  btn-danger w-25" type="submit" >Delete</button>
+  
+        <a  class=" btn btn-info w-25"  href={% url "index" %}>cancel</a>
+  </div>
+</form>
+{% endblock container %}

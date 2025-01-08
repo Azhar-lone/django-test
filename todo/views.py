@@ -15,13 +15,13 @@ def add_todo(request):
         Todo.objects.create(title=title, description=description)  # Add task to the database
         return redirect('index')  # Redirect to the homepage
     return render(request, 'add_todo.html')
-
 # Function to delete a task
 def del_todo(request, todo_id):
+ if request.method == 'POST':
     todo = get_object_or_404(Todo, id=todo_id)  # Get the specific task
     todo.delete()  # Delete the task
     return redirect('index')  # Redirect to the homepage
-# Function to delete a task
+ return render(request,"components/confirm_delete.html",{"todo_pk":todo_id})
 # Function to edit a task
 def edit_todo(request, todo_id):
     todo = get_object_or_404(Todo, id=todo_id)  # Get the specific task
